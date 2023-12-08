@@ -91,8 +91,8 @@
           if (r) {
             // Assuming the response (r) is the YouTube video URL
             var iframe = document.createElement('iframe');
-            iframe.width = "330"; // Adjust the width as needed
-            iframe.height = "587"; // You can set the height as per your design
+            iframe.width = "100%"; // Set width to 100% for responsiveness
+            iframe.height = "315"; // Set the height as per your design
             iframe.src = r;
             iframe.frameBorder = "0";
             iframe.allowFullscreen = true;
