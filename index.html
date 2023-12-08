@@ -2,18 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonia's Kitchen Delights</title>
   <style>
       body {
-        background-color: lightblue;
+        background-color: #fff;
+        color: #333;
+        font-family: 'Arial', sans-serif;
         text-align: center;
+        margin: 0;
+        padding: 0;
       }
-      
+
+      header {
+        background-color: #ff8c00;
+        padding: 10px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.5em;
+        color: #fff;
+      }
+
+      #content {
+        padding: 20px;
+      }
+
       .lds-ring {
         display: inline-block;
         position: relative;
         width: 80px;
         height: 80px;
+        margin-top: 20%;
       }
       
       .lds-ring div {
@@ -23,22 +44,10 @@
         width: 64px;
         height: 64px;
         margin: 8px;
-        border: 8px solid #fff;
+        border: 8px solid #ff8c00;
         border-radius: 50%;
         animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: #fff transparent transparent transparent;
-      }
-      
-      .lds-ring div:nth-child(1) {
-        animation-delay: -0.45s;
-      }
-      
-      .lds-ring div:nth-child(2) {
-        animation-delay: -0.3s;
-      }
-      
-      .lds-ring div:nth-child(3) {
-        animation-delay: -0.15s;
+        border-color: #ff8c00 transparent transparent transparent;
       }
       
       @keyframes lds-ring {
@@ -52,36 +61,44 @@
   </style>
 </head>
 <body>
+  <header>
+    <h1>Sonia's Kitchen Delights</h1>
+  </header>
+
+  <div id="content" class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
   <script>
     const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbwBGbZwcQCn79p6b95O58b7gmgunWE1ORL2zJdndbf1LtG6KzYU5S8SnhfJs3duT9HS/exec";
     
     var url = document.location.href;
-    var k = url.substr(url.lastIndexOf("k=")+2);
+    var k = url.substr(url.lastIndexOf("k=") + 2);
     
     if (k) {
-      fetch(AS_URL_BASE+'?k='+k)
-      .then(r => r.text())
-      .then((r) => {
-        console.log(r);
-        if (r) {
-          // Assuming the response (r) is the YouTube video URL
-          var iframe = document.createElement('iframe');
-          iframe.width = "660"; // You can set the width and height as per your design
-          iframe.height = "1200";
-          iframe.src = r;
-          iframe.frameBorder = "0";
-          iframe.allowFullscreen = true;
-          
-          // Replace the loading indicator with the YouTube video iframe
-          document.body.innerHTML = '';
-          document.body.appendChild(iframe);
-        }
-      })
-      .catch(err => console.log(err))
+      fetch(AS_URL_BASE + '?k=' + k)
+        .then(r => r.text())
+        .then((r) => {
+          console.log(r);
+          if (r) {
+            // Assuming the response (r) is the YouTube video URL
+            var iframe = document.createElement('iframe');
+            iframe.width = "330"; // You can set the width and height as per your design
+            iframe.height = "587";
+            iframe.src = r;
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
+
+            // Replace the loading indicator with the YouTube video iframe
+            document.getElementById('content').innerHTML = '';
+            document.getElementById('content').appendChild(iframe);
+          }
+        })
+        .catch(err => console.log(err))
     }
   </script>
-
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-
 </body>
 </html>
