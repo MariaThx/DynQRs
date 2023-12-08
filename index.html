@@ -1,121 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonia's Kitchen Delights</title>
-  <style>
-      body {
-        background-color: #fff;
-        color: #333;
-        font-family: 'Arial', sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-
-      header {
-        background-color: #ff8c00;
-        padding: 10px;
-        margin-bottom: 2px;
-        width: 100%; /* Make the header span the entire width */
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 1.5em;
-        color: #fff;
-      }
-
-      #content-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%; /* Make the content container span the entire width */
-      }
-
-      #content {
-        width: 80%; /* Adjust the width as needed */
-        margin-top: 20px;
-      }
-
-      .lds-ring {
-        display: inline-block;
-        position: relative;
-        width: 80px;
-        height: 80px;
-      }
-      
-      .lds-ring div {
-        box-sizing: border-box;
-        display: block;
-        position: absolute;
-        width: 64px;
-        height: 64px;
-        margin: 8px;
-        border: 8px solid #ff8c00;
-        border-radius: 50%;
-        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: #ff8c00 transparent transparent transparent;
-      }
-      
-      @keyframes lds-ring {
-        0% {
-          transform: rotate(0deg);
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia's Kitchen Delights</title>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
-        100% {
-          transform: rotate(360deg);
+
+        header {
+            background-color: #ff8c00;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
-      }
-  </style>
+
+        h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #fff;
+        }
+
+        #content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        #content {
+            width: 90%;
+            margin-top: 20px;
+        }
+
+        .lds-ring {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border: 8px solid #ff8c00;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: #ff8c00 transparent transparent transparent;
+        }
+
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            max-width: 800px;
+            max-height: 450px;
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>Sonia's Kitchen Delights</h1>
-  </header>
+    <header>
+        <h1>Sonia's Kitchen Delights</h1>
+    </header>
 
-  <div id="content-container">
-    <div id="content" class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div id="content-container">
+        <div id="content" class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbwBGbZwcQCn79p6b95O58b7gmgunWE1ORL2zJdndbf1LtG6KzYU5S8SnhfJs3duT9HS/exec";
-    
-    var url = document.location.href;
-    var k = url.substr(url.lastIndexOf("k=") + 2);
-    
-    if (k) {
-      fetch(AS_URL_BASE + '?k=' + k)
-        .then(r => r.text())
-        .then((r) => {
-          console.log(r);
-          if (r) {
-            // Assuming the response (r) is the YouTube video URL
-            var iframe = document.createElement('iframe');
-            iframe.width = "100%"; // Set width to 100% for responsiveness
-            iframe.height = "315"; // Set the height as per your design
-            iframe.src = r;
-            iframe.frameBorder = "0";
-            iframe.allowFullscreen = true;
+    <script>
+        const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbwBGbZwcQCn79p6b95O58b7gmgunWE1ORL2zJdndbf1LtG6KzYU5S8SnhfJs3duT9HS/exec";
 
-            // Replace the loading indicator with the YouTube video iframe
-            document.getElementById('content').innerHTML = '';
-            document.getElementById('content').appendChild(iframe);
-          }
-        })
-        .catch(err => console.log(err))
-    }
-  </script>
+        var url = document.location.href;
+        var k = url.substr(url.lastIndexOf("k=") + 2);
+
+        if (k) {
+            fetch(AS_URL_BASE + '?k=' + k)
+                .then(r => r.text())
+                .then((r) => {
+                    console.log(r);
+                    if (r) {
+                        // Assuming the response (r) is the YouTube video URL
+                        var iframe = document.createElement('iframe');
+                        iframe.src = r;
+                        iframe.frameBorder = "0";
+                        iframe.allowFullscreen = true;
+
+                        // Replace the loading indicator with the YouTube video iframe
+                        document.getElementById('content').innerHTML = '';
+                        document.getElementById('content').appendChild(iframe);
+                    }
+                })
+                .catch(err => console.log(err))
+        }
+    </script>
 </body>
+
 </html>
