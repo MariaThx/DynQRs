@@ -59,19 +59,19 @@
     var k = url.substr(url.lastIndexOf("k=")+2);
     
     if (k) {
-      fetch(AS_URL_BASE)
+      fetch(AS_URL_BASE+'?k='+k)
       .then(r => r.text())
       .then((r) => {
         console.log(r);
         if (r) {
           // Assuming the response (r) is the YouTube video URL
           var iframe = document.createElement('iframe');
-          iframe.width = "560"; // You can set the width and height as per your design
-          iframe.height = "315";
+          iframe.width = "330"; // You can set the width and height as per your design
+          iframe.height = "587";
           iframe.src = r;
           iframe.frameBorder = "0";
           iframe.allowFullscreen = true;
-
+          
           // Replace the loading indicator with the YouTube video iframe
           document.body.innerHTML = '';
           document.body.appendChild(iframe);
