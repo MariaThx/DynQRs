@@ -66,8 +66,8 @@
         if (r) {
           // Assuming the response (r) is the YouTube video URL
           var iframe = document.createElement('iframe');
-          iframe.width = "330"; // You can set the width and height as per your design
-          iframe.height = "587";
+          iframe.width = "660"; // You can set the width and height as per your design
+          iframe.height = "1200";
           iframe.src = r;
           iframe.frameBorder = "0";
           iframe.allowFullscreen = true;
@@ -80,5 +80,8 @@
       .catch(err => console.log(err))
     }
   </script>
+
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+
 </body>
 </html>
