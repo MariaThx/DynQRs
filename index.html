@@ -35,6 +35,8 @@
 
       #content {
         padding: 20px;
+        max-width: 80%;
+        margin: 0 auto;
       }
 
       .lds-ring {
@@ -95,8 +97,8 @@
           if (r) {
             // Assuming the response (r) is the YouTube video URL
             var iframe = document.createElement('iframe');
-            iframe.width = "330"; // You can set the width and height as per your design
-            iframe.height = "587";
+            iframe.width = "100%"; // Adjust the width as needed
+            iframe.height = "315"; // You can set the height as per your design
             iframe.src = r;
             iframe.frameBorder = "0";
             iframe.allowFullscreen = true;
