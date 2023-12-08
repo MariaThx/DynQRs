@@ -27,6 +27,9 @@
 
       #content {
         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .lds-ring {
@@ -34,7 +37,6 @@
         position: relative;
         width: 80px;
         height: 80px;
-        margin-top: 20%;
       }
       
       .lds-ring div {
@@ -57,6 +59,12 @@
         100% {
           transform: rotate(360deg);
         }
+      }
+
+      iframe {
+        width: 100%;
+        height: 315px; /* Adjust the height as needed */
+        margin-top: 20px;
       }
   </style>
 </head>
@@ -86,8 +94,6 @@
           if (r) {
             // Assuming the response (r) is the YouTube video URL
             var iframe = document.createElement('iframe');
-            iframe.width = "100%";
-            iframe.height = "315";
             iframe.src = r;
             iframe.frameBorder = "0";
             iframe.allowFullscreen = true;
